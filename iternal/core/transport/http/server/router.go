@@ -1,7 +1,10 @@
 package core_http_server
 
 import (
+	"fmt"
 	"net/http"
+
+	core_http_middleware "github.com/mihail2771/todogo/iternal/core/transport/http/middleware"
 )
 
 type ApiVersion string
@@ -15,42 +18,28 @@ var (
 type APIVersionRouter struct {
 	*http.ServeMux
 	apiVersion ApiVersion
+	middleware []core_http_middleware.Middleware
 }
 
-func NewAPIVersionRouter(apiVersion ApiVersion) *APIVersionRouter {
+func NewAPIVersionRouter(apiVersion ApiVersion, middleware ...core_http_middleware.Middleware) *APIVersionRouter {
 	return &APIVersionRouter{
 		ServeMux:   http.NewServeMux(),
 		apiVersion: apiVersion,
+		middleware: middleware,
 	}
 }
 
-/*func (r *APIVersionRouter) RegistrRoutes(routes ...Route) {
-	for _, route := range routes {
-		pattern := fmt.Sprintf("/%s%s", r.apiVersion, route.Path)
-		fmt.Println(pattern)
-		r.Handle(pattern, route.Handler)
-	}
-
-}*/
-
 func (r *APIVersionRouter) RegistrRoutes(routes ...Route) {
-	// Группируем маршруты по пути
-	routesByPath := make(map[string]map[string]http.Handler)
 	for _, route := range routes {
-		if _, ok := routesByPath[route.Path]; !ok {
-			routesByPath[route.Path] = make(map[string]http.Handler)
-		}
-		routesByPath[route.Path][route.Method] = route.Handler
-	}
+		pattern := fmt.Sprintf("%s %s", route.Method, route.Path)
 
-	// Регистрируем один обработчик для каждого пути
-	for path, handlers := range routesByPath {
-		r.HandleFunc(path, func(rw http.ResponseWriter, r *http.Request) {
-			if handler, ok := handlers[r.Method]; ok {
-				handler.ServeHTTP(rw, r)
-			} else {
-				http.Error(rw, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
-			}
-		})
+		r.Handle(pattern, route.WithMiddleware())
 	}
+}
+
+func (r *APIVersionRouter) WithMiddleware() http.Handler {
+	return core_http_middleware.ChainMiddleware(
+		r,
+		r.middleware...,
+	)
 }

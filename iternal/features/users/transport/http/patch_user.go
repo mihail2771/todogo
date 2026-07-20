@@ -11,12 +11,11 @@ import (
 	core_http_request "github.com/mihail2771/todogo/iternal/core/transport/http/request"
 	core_http_response "github.com/mihail2771/todogo/iternal/core/transport/http/response"
 	core_http_types "github.com/mihail2771/todogo/iternal/core/transport/http/types"
-	core_http_utils "github.com/mihail2771/todogo/iternal/core/transport/http/utils"
 )
 
 type PatchUserRequst struct {
-	FullName    core_http_types.Nullebel[string] `json:"full_name"`
-	PhoneNumber core_http_types.Nullebel[string] `json:"phone_number"`
+	FullName    core_http_types.Nullabel[string] `json:"full_name"`
+	PhoneNumber core_http_types.Nullabel[string] `json:"phone_number"`
 }
 
 func (r *PatchUserRequst) Validate() error {
@@ -55,7 +54,7 @@ func (h *UserHTTPHandler) PatchUser(rw http.ResponseWriter, r *http.Request) {
 	log.Debug("invoce PatchUser handler")
 	responseHandler := core_http_response.NewHTTPResponseHandler(log, rw)
 
-	userID, err := core_http_utils.GetIntPathValue(r, "id")
+	userID, err := core_http_request.GetIntPathValue(r, "id")
 	if err != nil {
 		responseHandler.ErrorResponse(
 			err,
@@ -90,8 +89,8 @@ func (h *UserHTTPHandler) PatchUser(rw http.ResponseWriter, r *http.Request) {
 }
 
 func userPatchFromRequest(request PatchUserRequst) domain.UserPatch {
-	return domain.UserPatch{
-		FullName:    request.FullName.ToDomain(),
-		PhoneNumber: request.PhoneNumber.ToDomain(),
-	}
+	return domain.NewUserPatch(
+		request.FullName.ToDomain(),
+		request.PhoneNumber.ToDomain(),
+	)
 }

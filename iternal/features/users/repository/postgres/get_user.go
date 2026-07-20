@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/jackc/pgx/v5"
 	"github.com/mihail2771/todogo/iternal/core/domain"
 	core_errors "github.com/mihail2771/todogo/iternal/core/errors"
+	core_postgres_pool "github.com/mihail2771/todogo/iternal/core/repository/postgres/pool"
 )
 
 func (r *UserRepository) GetUser(
@@ -31,7 +31,7 @@ func (r *UserRepository) GetUser(
 		&userModel.FullName,
 		&userModel.PhoneNumber,
 	); err != nil {
-		if err == pgx.ErrNoRows {
+		if err == core_postgres_pool.ErrNoRows {
 			return domain.User{}, fmt.Errorf(
 				"user not found user id=%d: %w",
 				id,

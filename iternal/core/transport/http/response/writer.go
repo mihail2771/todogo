@@ -26,7 +26,7 @@ func (rw *ResponseWriter) WriteHeader(code int) {
 
 func (rw *ResponseWriter) GetStatusCode() int {
 	if rw.statusCode == statusCodeUninitialised {
-		panic("no statusCode")
+		return http.StatusOK
 	}
 
 	return rw.statusCode

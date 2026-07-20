@@ -62,8 +62,18 @@ func (u *User) Validate() error {
 }
 
 type UserPatch struct {
-	FullName    Nullebel[string]
-	PhoneNumber Nullebel[string]
+	FullName    Nullabel[string]
+	PhoneNumber Nullabel[string]
+}
+
+func NewUserPatch(
+	fullName Nullabel[string],
+	phoneNumber Nullabel[string],
+) UserPatch {
+	return UserPatch{
+		FullName:    fullName,
+		PhoneNumber: phoneNumber,
+	}
 }
 
 func (p *UserPatch) Validate() error {

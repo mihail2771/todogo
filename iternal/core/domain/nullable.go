@@ -1,6 +1,6 @@
 package domain
 
-type Nullebel[T any] struct {
+type Nullabel[T any] struct {
 	Value *T
 	Set   bool
 }
