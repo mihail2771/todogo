@@ -13,12 +13,12 @@ import (
 	core_http_types "github.com/mihail2771/todogo/iternal/core/transport/http/types"
 )
 
-type PatchUserRequst struct {
+type PatchUserRequest struct {
 	FullName    core_http_types.Nullabel[string] `json:"full_name"`
 	PhoneNumber core_http_types.Nullabel[string] `json:"phone_number"`
 }
 
-func (r *PatchUserRequst) Validate() error {
+func (r *PatchUserRequest) Validate() error {
 	if r.FullName.Set {
 		if r.FullName.Value == nil {
 			return fmt.Errorf("Fullname can't be NULL")
@@ -63,7 +63,7 @@ func (h *UserHTTPHandler) PatchUser(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var request PatchUserRequst
+	var request PatchUserRequest
 	if err := core_http_request.DecodeAndValidateRequest(r, &request); err != nil {
 		responseHandler.ErrorResponse(
 			err,
@@ -88,7 +88,7 @@ func (h *UserHTTPHandler) PatchUser(rw http.ResponseWriter, r *http.Request) {
 
 }
 
-func userPatchFromRequest(request PatchUserRequst) domain.UserPatch {
+func userPatchFromRequest(request PatchUserRequest) domain.UserPatch {
 	return domain.NewUserPatch(
 		request.FullName.ToDomain(),
 		request.PhoneNumber.ToDomain(),

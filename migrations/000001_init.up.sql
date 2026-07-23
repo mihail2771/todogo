@@ -11,7 +11,7 @@ CREATE TABLE todoapp.tasks (
     id              SERIAL                      PRIMARY KEY,
     version         BIGINT          NOT NULL    DEFAULT 1,
     title           VARCHAR(100)    NOT NULL    CHECK (char_length(title) BETWEEN 1 AND 100),
-    discription     VARCHAR(1000)               CHECK (char_length(discription) BETWEEN 1 AND 1000),
+    description     VARCHAR(1000)               CHECK (char_length(description) BETWEEN 1 AND 1000),
     completed       BOOLEAN         NOT NULL    DEFAULT FALSE,
     created_at      TIMESTAMPTZ     NOT NULL    DEFAULT CURRENT_TIMESTAMP,
     completed_at    TIMESTAMPTZ                 DEFAULT CURRENT_TIMESTAMP,
@@ -21,5 +21,5 @@ CREATE TABLE todoapp.tasks (
         OR (completed=TRUE AND completed_at IS NOT NULL AND completed_at > created_at)
     ),
 
-    autor_user_id   INTEGER         NOT NULL    REFERENCES todoapp.users(id)
+    author_user_id   INTEGER         NOT NULL    REFERENCES todoapp.users(id)
 );

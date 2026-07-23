@@ -6,11 +6,16 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
+	core_config "github.com/mihail2771/todogo/iternal/core/config"
 	core_logger "github.com/mihail2771/todogo/iternal/core/logger"
 	core_pgx_pool "github.com/mihail2771/todogo/iternal/core/repository/postgres/pool/pgx"
 	core_http_middleware "github.com/mihail2771/todogo/iternal/core/transport/http/middleware"
 	core_http_server "github.com/mihail2771/todogo/iternal/core/transport/http/server"
+	task_postgres_repository "github.com/mihail2771/todogo/iternal/features/tasks/repositoty/postgres"
+	tasks_service "github.com/mihail2771/todogo/iternal/features/tasks/service"
+	tasks_transport_http "github.com/mihail2771/todogo/iternal/features/tasks/transport/http"
 	users_postgres_repositoty "github.com/mihail2771/todogo/iternal/features/users/repository/postgres"
 	users_service "github.com/mihail2771/todogo/iternal/features/users/service"
 	users_transport_http "github.com/mihail2771/todogo/iternal/features/users/transport/http"
@@ -18,6 +23,8 @@ import (
 )
 
 func main() {
+	cfg := core_config.NewConfigMust()
+	time.Local = cfg.TimeZone
 
 	ctx, cancel := signal.NotifyContext(
 		context.Background(),
@@ -34,6 +41,8 @@ func main() {
 	}
 	defer logger.Close()
 
+	logger.Debug("application time zone", zap.Any("zone", time.Local))
+
 	logger.Debug("Init connection pool")
 	pool, err := core_pgx_pool.NewPool(
 		ctx,
@@ -44,15 +53,27 @@ func main() {
 	}
 	defer pool.Close()
 
+	apiVewrsionRouterV1 := core_http_server.NewAPIVersionRouter(core_http_server.ApiVersion1)
+
+	//USERS
 	logger.Debug("Initializing fuature", zap.String("feature", "users"))
+
 	usersRepository := users_postgres_repositoty.NewUserRepository(pool)
 	usersService := users_service.NewUserService(usersRepository)
-
 	userTransportHTTP := users_transport_http.NewUserHTTPHandler(usersService)
-	userRouters := userTransportHTTP.Routers()
 
-	apiVewrsionRouterV1 := core_http_server.NewAPIVersionRouter(core_http_server.ApiVersion1)
-	apiVewrsionRouterV1.RegistrRoutes(userRouters...)
+	apiVewrsionRouterV1.RegistrRoutes(userTransportHTTP.Routers()...)
+	//USERS
+
+	//TASKS
+	logger.Debug("Initializing fuature", zap.String("feature", "tasks"))
+
+	tasksRepository := task_postgres_repository.NewTasksRepository(pool)
+	tasksService := tasks_service.NewTaskService(tasksRepository)
+	tasksTransportHTTP := tasks_transport_http.NewTasksHTTPHandler(tasksService)
+
+	apiVewrsionRouterV1.RegistrRoutes(tasksTransportHTTP.Routers()...)
+	//TASKS
 
 	// apiVewrsionRouterV2 := core_http_server.NewAPIVersionRouter(core_http_server.ApiVersion2, core_http_middleware.Dummy("v2 ex"))
 	// apiVewrsionRouterV2.RegistrRoutes(userRouters...)
