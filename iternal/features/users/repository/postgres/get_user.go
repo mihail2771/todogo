@@ -42,12 +42,12 @@ func (r *UserRepository) GetUser(
 		return domain.User{}, fmt.Errorf("scan error: %w", err)
 	}
 
-	usersDomain := domain.NewUser(
+	userDomain := domain.NewUser(
 		userModel.ID,
 		userModel.Version,
 		userModel.FullName,
 		userModel.PhoneNumber,
 	)
 
-	return usersDomain, nil
+	return userDomain, nil
 }
