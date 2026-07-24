@@ -13,6 +13,9 @@ import (
 	core_pgx_pool "github.com/mihail2771/todogo/iternal/core/repository/postgres/pool/pgx"
 	core_http_middleware "github.com/mihail2771/todogo/iternal/core/transport/http/middleware"
 	core_http_server "github.com/mihail2771/todogo/iternal/core/transport/http/server"
+	statistics_postgres_repositoty "github.com/mihail2771/todogo/iternal/features/statistics/repository/postgres"
+	statistics_service "github.com/mihail2771/todogo/iternal/features/statistics/service"
+	statistics_transport_http "github.com/mihail2771/todogo/iternal/features/statistics/transport/http"
 	task_postgres_repository "github.com/mihail2771/todogo/iternal/features/tasks/repositoty/postgres"
 	tasks_service "github.com/mihail2771/todogo/iternal/features/tasks/service"
 	tasks_transport_http "github.com/mihail2771/todogo/iternal/features/tasks/transport/http"
@@ -74,6 +77,16 @@ func main() {
 
 	apiVewrsionRouterV1.RegistrRoutes(tasksTransportHTTP.Routers()...)
 	//TASKS
+
+	//STATISTICS
+	logger.Debug("Initializing fuature", zap.String("feature", "statistics"))
+
+	statisticsRepository := statistics_postgres_repositoty.NewStatisticsRepository(pool)
+	statisticsService := statistics_service.NewStatisticsService(statisticsRepository)
+	statisticsTransportHTTP := statistics_transport_http.NewStatisticHTTPHandler(statisticsService)
+
+	apiVewrsionRouterV1.RegistrRoutes(statisticsTransportHTTP.Routers()...)
+	//STATISTICS
 
 	// apiVewrsionRouterV2 := core_http_server.NewAPIVersionRouter(core_http_server.ApiVersion2, core_http_middleware.Dummy("v2 ex"))
 	// apiVewrsionRouterV2.RegistrRoutes(userRouters...)
