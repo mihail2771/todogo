@@ -7,19 +7,19 @@ env-up:
 	@docker compose up -d todoapp-postgres
 
 env-down:
-	@docker compose down todoapp-postgres
+	@docker compose down
 
 env-cleanup:
 	@read -p "Очистить все volume - ОПАСНО !!! [y/N]: " ans;\
 	if [ "$$ans" = "y" ]; then\
-		docker compose down todoapp-postgres port-forwarding &&\
+		docker compose down &&\
 		rm -rf ${PROJECT_ROOT}/out/pgdata && \
 		echo "Файлы очищены"; \
 	else \
 		echo "Очистка отменена"; \
 	fi
 
-env-port-forvard:
+env-port-forward:
 	@docker compose up -d port-forwarding
 
 env-port-close:
@@ -32,7 +32,7 @@ migrate-create:
 		exit 1; \
 	fi; \
 	mkdir -p migrations; \
-	docker compose run --rm todoapp-postpores-migrate \
+	docker compose run --rm todoapp-postgres-migrate \
 		create \
 		-ext sql \
 		-dir /migrations \
@@ -78,3 +78,10 @@ todoapp-undeploy:
 ps:
 	@docker compose ps
 	
+swagger-gen:
+	@docker compose run --rm swagger \
+		init \
+		-g /cmd/todoapp/main.go \
+		-o docs \
+		--parseInternal \
+		--parseDependency

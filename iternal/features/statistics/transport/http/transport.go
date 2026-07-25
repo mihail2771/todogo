@@ -10,7 +10,7 @@ import (
 )
 
 type StatisticsHTTPHandler struct {
-	statisticSevice StatisticsService
+	statisticsService StatisticsService
 }
 
 type StatisticsService interface {
@@ -19,14 +19,14 @@ type StatisticsService interface {
 		userID *int,
 		from *time.Time,
 		to *time.Time,
-	) (domain.Staistics, error)
+	) (domain.Statistics, error)
 }
 
 func NewStatisticHTTPHandler(
-	statisticSevice StatisticsService,
+	statisticsService StatisticsService,
 ) *StatisticsHTTPHandler {
 	return &StatisticsHTTPHandler{
-		statisticSevice: statisticSevice,
+		statisticsService: statisticsService,
 	}
 }
 

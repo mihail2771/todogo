@@ -2,20 +2,20 @@ package domain
 
 import "time"
 
-type Staistics struct {
+type Statistics struct {
 	TaskCreated                int
 	TasksCompleted             int
 	TasksCompletedRate         *float64
 	TasksAverageCompletionTime *time.Duration
 }
 
-func NewStaistics(
+func NewStatistics(
 	taskCreated int,
 	tasksCompleted int,
 	tasksCompletedRate *float64,
 	tasksAverageCompletionTime *time.Duration,
-) Staistics {
-	return Staistics{
+) Statistics {
+	return Statistics{
 		TaskCreated:                taskCreated,
 		TasksCompleted:             tasksCompleted,
 		TasksCompletedRate:         tasksCompletedRate,

@@ -14,11 +14,11 @@ func (s *StatisticsService) GetStatistics(
 	userID *int,
 	from *time.Time,
 	to *time.Time,
-) (domain.Staistics, error) {
+) (domain.Statistics, error) {
 
 	if from != nil && to != nil {
 		if to.Before(*from) || to.Equal(*from) {
-			return domain.Staistics{}, fmt.Errorf(
+			return domain.Statistics{}, fmt.Errorf(
 				"`to` must be after `from`: %w",
 				core_errors.ErrInvalidArgument,
 			)
@@ -27,7 +27,7 @@ func (s *StatisticsService) GetStatistics(
 
 	tasks, err := s.repositoryService.GetTasks(ctx, userID, from, to)
 	if err != nil {
-		return domain.Staistics{}, fmt.Errorf("get tasks from repository: %w", err)
+		return domain.Statistics{}, fmt.Errorf("get tasks from repository: %w", err)
 	}
 
 	statistics := calcStatistics(tasks)
@@ -36,9 +36,9 @@ func (s *StatisticsService) GetStatistics(
 
 }
 
-func calcStatistics(tasks []domain.Task) domain.Staistics {
+func calcStatistics(tasks []domain.Task) domain.Statistics {
 	if len(tasks) == 0 {
-		return domain.NewStaistics(0, 0, nil, nil)
+		return domain.NewStatistics(0, 0, nil, nil)
 	}
 
 	tasksCreated := len(tasks)
@@ -50,9 +50,9 @@ func calcStatistics(tasks []domain.Task) domain.Staistics {
 
 		}
 
-		completetionDuration := task.CompletetionDuration()
-		if completetionDuration != nil {
-			totalCompletedDuration += *completetionDuration
+		completionDuration := task.CompletionDuration()
+		if completionDuration != nil {
+			totalCompletedDuration += *completionDuration
 		}
 
 	}
@@ -65,7 +65,7 @@ func calcStatistics(tasks []domain.Task) domain.Staistics {
 		tasksAverageCompletionTime = &avg
 	}
 
-	return domain.NewStaistics(
+	return domain.NewStatistics(
 		tasksCreated,
 		tasksCompleted,
 		&tasksCompletedRate,
