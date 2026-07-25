@@ -62,13 +62,13 @@ func (u *User) Validate() error {
 }
 
 type UserPatch struct {
-	FullName    Nullabel[string]
-	PhoneNumber Nullabel[string]
+	FullName    Nullable[string]
+	PhoneNumber Nullable[string]
 }
 
 func NewUserPatch(
-	fullName Nullabel[string],
-	phoneNumber Nullabel[string],
+	fullName Nullable[string],
+	phoneNumber Nullable[string],
 ) UserPatch {
 	return UserPatch{
 		FullName:    fullName,
@@ -78,7 +78,7 @@ func NewUserPatch(
 
 func (p *UserPatch) Validate() error {
 	if p.FullName.Set && p.FullName.Value == nil {
-		return fmt.Errorf("FullName can't be pached to NULL: %w", core_errors.ErrInvalidArgument)
+		return fmt.Errorf("FullName can't be patched to NULL: %w", core_errors.ErrInvalidArgument)
 	}
 	return nil
 }

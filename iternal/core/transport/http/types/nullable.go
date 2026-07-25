@@ -6,11 +6,11 @@ import (
 	"github.com/mihail2771/todogo/iternal/core/domain"
 )
 
-type Nullabel[T any] struct {
-	domain.Nullabel[T]
+type Nullable[T any] struct {
+	domain.Nullable[T]
 }
 
-func (n *Nullabel[T]) UnmarshalJSON(b []byte) error {
+func (n *Nullable[T]) UnmarshalJSON(b []byte) error {
 	n.Set = true
 	if string(b) == "null" {
 		n.Value = nil
@@ -27,8 +27,8 @@ func (n *Nullabel[T]) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func (n *Nullabel[T]) ToDomain() domain.Nullabel[T] {
-	return domain.Nullabel[T]{
+func (n *Nullable[T]) ToDomain() domain.Nullable[T] {
+	return domain.Nullable[T]{
 		Value: n.Value,
 		Set:   n.Set,
 	}

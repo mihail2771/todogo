@@ -59,7 +59,7 @@ func NewTaskUninitialized(
 	)
 }
 
-func (t *Task) CompletetionDuration() *time.Duration {
+func (t *Task) CompletionDuration() *time.Duration {
 	if !t.Completed {
 		return nil
 	}
@@ -115,17 +115,17 @@ func (t *Task) Validate() error {
 }
 
 type TaskPatch struct {
-	Title        Nullabel[string]
-	Description  Nullabel[string]
-	Completed    Nullabel[bool]
-	AuthorUserID Nullabel[int]
+	Title        Nullable[string]
+	Description  Nullable[string]
+	Completed    Nullable[bool]
+	AuthorUserID Nullable[int]
 }
 
 func NewTaskPatch(
-	title Nullabel[string],
-	description Nullabel[string],
-	completed Nullabel[bool],
-	authorUserID Nullabel[int],
+	title Nullable[string],
+	description Nullable[string],
+	completed Nullable[bool],
+	authorUserID Nullable[int],
 ) TaskPatch {
 	return TaskPatch{
 		Title:        title,
