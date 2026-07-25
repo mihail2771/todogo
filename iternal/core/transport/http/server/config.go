@@ -13,6 +13,7 @@ type Config struct {
 	WriteTimeout    time.Duration `envconfig:"WRITE_TIMEOUT" default:"10s"`
 	IdleTimeout     time.Duration `envconfig:"IDLE_TIMEOUT" default:"60s"`
 	ShutDownTimeOut time.Duration `envconfig:"SHUTDOWN_TIMEOUT" default:"10s"`
+	AllowedOrigins  []string      `envconfig:"ALLOWED_ORIGINS" required:"true"`
 }
 
 func NewConfig() (Config, error) {
