@@ -22,6 +22,9 @@ import (
 	users_postgres_repositoty "github.com/mihail2771/todogo/iternal/features/users/repository/postgres"
 	users_service "github.com/mihail2771/todogo/iternal/features/users/service"
 	users_transport_http "github.com/mihail2771/todogo/iternal/features/users/transport/http"
+	web_fs_repository "github.com/mihail2771/todogo/iternal/features/web/repository/file_system"
+	web_service "github.com/mihail2771/todogo/iternal/features/web/service"
+	web_transport_http "github.com/mihail2771/todogo/iternal/features/web/transport/http"
 	"go.uber.org/zap"
 
 	_ "github.com/mihail2771/todogo/docs"
@@ -96,6 +99,14 @@ func main() {
 	apiVersionRouterV1.RegisterRoutes(statisticsTransportHTTP.Routers()...)
 	//STATISTICS
 
+	//PAGE
+	logger.Debug("Initializing feature", zap.String("feature", "PAGE"))
+
+	WebRepository := web_fs_repository.NewWebRepository()
+	webService := web_service.NewWebService(WebRepository)
+	webTransportHTTP := web_transport_http.NewWebHTTPHandler(webService)
+	//PAGE
+
 	// apiVersionRouterV2 := core_http_server.NewAPIVersionRouter(core_http_server.ApiVersion2, core_http_middleware.Dummy("v2 ex"))
 	// apiVersionRouterV2.RegisterRoutes(userRouters...)
 
@@ -114,6 +125,7 @@ func main() {
 	//	apiVersionRouterV2,
 	)
 
+	httpServer.RegisterRoutes(webTransportHTTP.Routers()...)
 	httpServer.RegisterSwagger()
 
 	if err := httpServer.Run(ctx); err != nil {
