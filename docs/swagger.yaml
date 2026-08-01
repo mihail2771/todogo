@@ -1,6 +1,6 @@
 basePath: /api/v1
 definitions:
-  github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse:
+  github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse:
     properties:
       error:
         example: full error text
@@ -9,7 +9,7 @@ definitions:
         example: short readable message
         type: string
     type: object
-  iternal_features_statistics_transport_http.GetStatisticsResponse:
+internal_features_statistics_transport_http.GetStatisticsResponse:
     properties:
       task_average_completion_time:
         example: 1m30s
@@ -24,7 +24,7 @@ definitions:
         example: 3
         type: integer
     type: object
-  iternal_features_tasks_transport_http.CreateTaskRequest:
+internal_features_tasks_transport_http.CreateTaskRequest:
     properties:
       author_user_id:
         example: 2
@@ -43,7 +43,7 @@ definitions:
     - author_user_id
     - title
     type: object
-  iternal_features_tasks_transport_http.CreateTaskResponse:
+internal_features_tasks_transport_http.CreateTaskResponse:
     properties:
       author_user_id:
         example: 2
@@ -70,7 +70,7 @@ definitions:
         example: 3
         type: integer
     type: object
-  iternal_features_tasks_transport_http.GetTaskResponse:
+internal_features_tasks_transport_http.GetTaskResponse:
     properties:
       author_user_id:
         example: 2
@@ -97,7 +97,7 @@ definitions:
         example: 3
         type: integer
     type: object
-  iternal_features_tasks_transport_http.PatchTaskRequest:
+internal_features_tasks_transport_http.PatchTaskRequest:
     properties:
       author_user_id:
         example: 2
@@ -112,7 +112,7 @@ definitions:
         example: Название задачи
         type: string
     type: object
-  iternal_features_tasks_transport_http.PatchTaskResponse:
+internal_features_tasks_transport_http.PatchTaskResponse:
     properties:
       author_user_id:
         example: 2
@@ -139,7 +139,7 @@ definitions:
         example: 3
         type: integer
     type: object
-  iternal_features_tasks_transport_http.TaskDTOResponse:
+internal_features_tasks_transport_http.TaskDTOResponse:
     properties:
       author_user_id:
         example: 2
@@ -166,7 +166,7 @@ definitions:
         example: 3
         type: integer
     type: object
-  iternal_features_users_transport_http.CreateUserRequest:
+internal_features_users_transport_http.CreateUserRequest:
     properties:
       full_name:
         example: Ivan Ivanov
@@ -181,7 +181,7 @@ definitions:
     required:
     - full_name
     type: object
-  iternal_features_users_transport_http.CreateUserResponse:
+internal_features_users_transport_http.CreateUserResponse:
     properties:
       full_name:
         example: Ivan Ivanov
@@ -196,7 +196,7 @@ definitions:
         example: 3
         type: integer
     type: object
-  iternal_features_users_transport_http.GetUserResponse:
+internal_features_users_transport_http.GetUserResponse:
     properties:
       full_name:
         example: Ivan Ivanov
@@ -211,7 +211,7 @@ definitions:
         example: 3
         type: integer
     type: object
-  iternal_features_users_transport_http.PatchUserRequest:
+internal_features_users_transport_http.PatchUserRequest:
     properties:
       full_name:
         example: Ivan Ivanov
@@ -220,7 +220,7 @@ definitions:
         example: "+79994412345"
         type: string
     type: object
-  iternal_features_users_transport_http.PatchUserResponse:
+internal_features_users_transport_http.PatchUserResponse:
     properties:
       full_name:
         example: Ivan Ivanov
@@ -235,7 +235,7 @@ definitions:
         example: 3
         type: integer
     type: object
-  iternal_features_users_transport_http.UserDTOResponse:
+internal_features_users_transport_http.UserDTOResponse:
     properties:
       full_name:
         example: Ivan Ivanov
@@ -280,15 +280,15 @@ paths:
         "200":
           description: Успешное получение статистики
           schema:
-            $ref: '#/definitions/iternal_features_statistics_transport_http.GetStatisticsResponse'
+            $ref: '#/definitions/internal_features_statistics_transport_http.GetStatisticsResponse'
         "400":
           description: Bad request
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
       summary: Получение статистики
       tags:
       - statistics
@@ -315,16 +315,16 @@ paths:
           description: Список задач
           schema:
             items:
-              $ref: '#/definitions/iternal_features_tasks_transport_http.TaskDTOResponse'
+              $ref: '#/definitions/internal_features_tasks_transport_http.TaskDTOResponse'
             type: array
         "400":
           description: Bad request
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
       summary: Список задач
       tags:
       - tasks
@@ -338,26 +338,26 @@ paths:
         name: request
         required: true
         schema:
-          $ref: '#/definitions/iternal_features_tasks_transport_http.CreateTaskRequest'
+          $ref: '#/definitions/internal_features_tasks_transport_http.CreateTaskRequest'
       produces:
       - application/json
       responses:
         "201":
           description: Успешно созданная задача
           schema:
-            $ref: '#/definitions/iternal_features_tasks_transport_http.CreateTaskResponse'
+            $ref: '#/definitions/internal_features_tasks_transport_http.CreateTaskResponse'
         "400":
           description: Bad request
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "404":
           description: Author not found
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
       summary: Создать задачу
       tags:
       - tasks
@@ -378,15 +378,15 @@ paths:
         "400":
           description: Bad request
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "404":
           description: User not found
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
       summary: Удалить задачу
       tags:
       - tasks
@@ -404,19 +404,19 @@ paths:
         "200":
           description: Задача успешно найдена
           schema:
-            $ref: '#/definitions/iternal_features_tasks_transport_http.GetTaskResponse'
+            $ref: '#/definitions/internal_features_tasks_transport_http.GetTaskResponse'
         "400":
           description: Bad request
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "404":
           description: User not found
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
       summary: Получение задачи
       tags:
       - tasks
@@ -441,30 +441,30 @@ paths:
         name: request
         required: true
         schema:
-          $ref: '#/definitions/iternal_features_tasks_transport_http.PatchTaskRequest'
+          $ref: '#/definitions/internal_features_tasks_transport_http.PatchTaskRequest'
       produces:
       - application/json
       responses:
         "200":
           description: Успешно изменненая задача
           schema:
-            $ref: '#/definitions/iternal_features_tasks_transport_http.PatchTaskResponse'
+            $ref: '#/definitions/internal_features_tasks_transport_http.PatchTaskResponse'
         "400":
           description: Bad request
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "404":
           description: Task not found
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "409":
           description: Conflict
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
       summary: Изменить задачу
       tags:
       - tasks
@@ -487,16 +487,16 @@ paths:
           description: Список пользователей
           schema:
             items:
-              $ref: '#/definitions/iternal_features_users_transport_http.UserDTOResponse'
+              $ref: '#/definitions/internal_features_users_transport_http.UserDTOResponse'
             type: array
         "400":
           description: Bad request
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
       summary: Список пользователей
       tags:
       - users
@@ -510,22 +510,22 @@ paths:
         name: request
         required: true
         schema:
-          $ref: '#/definitions/iternal_features_users_transport_http.CreateUserRequest'
+          $ref: '#/definitions/internal_features_users_transport_http.CreateUserRequest'
       produces:
       - application/json
       responses:
         "201":
           description: Успешно созданный пользователь
           schema:
-            $ref: '#/definitions/iternal_features_users_transport_http.CreateUserResponse'
+            $ref: '#/definitions/internal_features_users_transport_http.CreateUserResponse'
         "400":
           description: Bad request
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
       summary: Создать пользователя
       tags:
       - users
@@ -546,15 +546,15 @@ paths:
         "400":
           description: Bad request
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "404":
           description: User not found
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
       summary: Удаление пользователя
       tags:
       - users
@@ -572,19 +572,19 @@ paths:
         "200":
           description: Пользователь успешно найден
           schema:
-            $ref: '#/definitions/iternal_features_users_transport_http.GetUserResponse'
+            $ref: '#/definitions/internal_features_users_transport_http.GetUserResponse'
         "400":
           description: Bad request
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "404":
           description: User not found
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
       summary: Получение пользователя
       tags:
       - users
@@ -609,30 +609,30 @@ paths:
         name: request
         required: true
         schema:
-          $ref: '#/definitions/iternal_features_users_transport_http.PatchUserRequest'
+          $ref: '#/definitions/internal_features_users_transport_http.PatchUserRequest'
       produces:
       - application/json
       responses:
         "200":
           description: Успешно созданный пользователь
           schema:
-            $ref: '#/definitions/iternal_features_users_transport_http.PatchUserResponse'
+            $ref: '#/definitions/internal_features_users_transport_http.PatchUserResponse'
         "400":
           description: Bad request
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "404":
           description: User not found
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "409":
           description: Conflict
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
         "500":
           description: Internal server error
           schema:
-            $ref: '#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse'
+            $ref: '#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse'
       summary: Изменение пользователя
       tags:
       - users
