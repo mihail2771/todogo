@@ -49,19 +49,19 @@ const docTemplate = `{
                     "200": {
                         "description": "Успешное получение статистики",
                         "schema": {
-                            "$ref": "#/definitions/iternal_features_statistics_transport_http.GetStatisticsResponse"
+                            "$ref": "#/definitions/internal_features_statistics_transport_http.GetStatisticsResponse"
                         }
                     },
                     "400": {
                         "description": "Bad request",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     }
                 }
@@ -103,20 +103,20 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/iternal_features_tasks_transport_http.TaskDTOResponse"
+                                "$ref": "#/definitions/internal_features_tasks_transport_http.TaskDTOResponse"
                             }
                         }
                     },
                     "400": {
                         "description": "Bad request",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     }
                 }
@@ -140,7 +140,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/iternal_features_tasks_transport_http.CreateTaskRequest"
+                            "$ref": "#/definitions/internal_features_tasks_transport_http.CreateTaskRequest"
                         }
                     }
                 ],
@@ -148,25 +148,25 @@ const docTemplate = `{
                     "201": {
                         "description": "Успешно созданная задача",
                         "schema": {
-                            "$ref": "#/definitions/iternal_features_tasks_transport_http.CreateTaskResponse"
+                            "$ref": "#/definitions/internal_features_tasks_transport_http.CreateTaskResponse"
                         }
                     },
                     "400": {
                         "description": "Bad request",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "Author not found",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     }
                 }
@@ -195,25 +195,25 @@ const docTemplate = `{
                     "200": {
                         "description": "Задача успешно найдена",
                         "schema": {
-                            "$ref": "#/definitions/iternal_features_tasks_transport_http.GetTaskResponse"
+                            "$ref": "#/definitions/internal_features_tasks_transport_http.GetTaskResponse"
                         }
                     },
                     "400": {
                         "description": "Bad request",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "User not found",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     }
                 }
@@ -243,19 +243,19 @@ const docTemplate = `{
                     "400": {
                         "description": "Bad request",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "User not found",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     }
                 }
@@ -286,7 +286,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/iternal_features_tasks_transport_http.PatchTaskRequest"
+                            "$ref": "#/definitions/internal_features_tasks_transport_http.PatchTaskRequest"
                         }
                     }
                 ],
@@ -294,31 +294,31 @@ const docTemplate = `{
                     "200": {
                         "description": "Успешно изменненая задача",
                         "schema": {
-                            "$ref": "#/definitions/iternal_features_tasks_transport_http.PatchTaskResponse"
+                            "$ref": "#/definitions/internal_features_tasks_transport_http.PatchTaskResponse"
                         }
                     },
                     "400": {
                         "description": "Bad request",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "Task not found",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "409": {
                         "description": "Conflict",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     }
                 }
@@ -354,20 +354,20 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/iternal_features_users_transport_http.UserDTOResponse"
+                                "$ref": "#/definitions/internal_features_users_transport_http.UserDTOResponse"
                             }
                         }
                     },
                     "400": {
                         "description": "Bad request",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     }
                 }
@@ -391,7 +391,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/iternal_features_users_transport_http.CreateUserRequest"
+                            "$ref": "#/definitions/internal_features_users_transport_http.CreateUserRequest"
                         }
                     }
                 ],
@@ -399,19 +399,19 @@ const docTemplate = `{
                     "201": {
                         "description": "Успешно созданный пользователь",
                         "schema": {
-                            "$ref": "#/definitions/iternal_features_users_transport_http.CreateUserResponse"
+                            "$ref": "#/definitions/internal_features_users_transport_http.CreateUserResponse"
                         }
                     },
                     "400": {
                         "description": "Bad request",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     }
                 }
@@ -440,25 +440,25 @@ const docTemplate = `{
                     "200": {
                         "description": "Пользователь успешно найден",
                         "schema": {
-                            "$ref": "#/definitions/iternal_features_users_transport_http.GetUserResponse"
+                            "$ref": "#/definitions/internal_features_users_transport_http.GetUserResponse"
                         }
                     },
                     "400": {
                         "description": "Bad request",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "User not found",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     }
                 }
@@ -488,19 +488,19 @@ const docTemplate = `{
                     "400": {
                         "description": "Bad request",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "User not found",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     }
                 }
@@ -531,7 +531,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/iternal_features_users_transport_http.PatchUserRequest"
+                            "$ref": "#/definitions/internal_features_users_transport_http.PatchUserRequest"
                         }
                     }
                 ],
@@ -539,31 +539,31 @@ const docTemplate = `{
                     "200": {
                         "description": "Успешно созданный пользователь",
                         "schema": {
-                            "$ref": "#/definitions/iternal_features_users_transport_http.PatchUserResponse"
+                            "$ref": "#/definitions/internal_features_users_transport_http.PatchUserResponse"
                         }
                     },
                     "400": {
                         "description": "Bad request",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "404": {
                         "description": "User not found",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "409": {
                         "description": "Conflict",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse"
+                            "$ref": "#/definitions/github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse"
                         }
                     }
                 }
@@ -571,7 +571,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "github_com_mihail2771_todogo_iternal_core_transport_http_response.ErrorResponse": {
+        "github_com_mihail2771_todogo_internal_core_transport_http_response.ErrorResponse": {
             "type": "object",
             "properties": {
                 "error": {
@@ -584,7 +584,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_statistics_transport_http.GetStatisticsResponse": {
+        "internal_features_statistics_transport_http.GetStatisticsResponse": {
             "type": "object",
             "properties": {
                 "task_average_completion_time": {
@@ -605,7 +605,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_tasks_transport_http.CreateTaskRequest": {
+        "internal_features_tasks_transport_http.CreateTaskRequest": {
             "type": "object",
             "required": [
                 "author_user_id",
@@ -630,7 +630,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_tasks_transport_http.CreateTaskResponse": {
+        "internal_features_tasks_transport_http.CreateTaskResponse": {
             "type": "object",
             "properties": {
                 "author_user_id": {
@@ -667,7 +667,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_tasks_transport_http.GetTaskResponse": {
+        "internal_features_tasks_transport_http.GetTaskResponse": {
             "type": "object",
             "properties": {
                 "author_user_id": {
@@ -704,7 +704,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_tasks_transport_http.PatchTaskRequest": {
+        "internal_features_tasks_transport_http.PatchTaskRequest": {
             "type": "object",
             "properties": {
                 "author_user_id": {
@@ -725,7 +725,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_tasks_transport_http.PatchTaskResponse": {
+        "internal_features_tasks_transport_http.PatchTaskResponse": {
             "type": "object",
             "properties": {
                 "author_user_id": {
@@ -762,7 +762,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_tasks_transport_http.TaskDTOResponse": {
+        "internal_features_tasks_transport_http.TaskDTOResponse": {
             "type": "object",
             "properties": {
                 "author_user_id": {
@@ -799,7 +799,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_users_transport_http.CreateUserRequest": {
+        "internal_features_users_transport_http.CreateUserRequest": {
             "type": "object",
             "required": [
                 "full_name"
@@ -819,7 +819,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_users_transport_http.CreateUserResponse": {
+        "internal_features_users_transport_http.CreateUserResponse": {
             "type": "object",
             "properties": {
                 "full_name": {
@@ -840,7 +840,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_users_transport_http.GetUserResponse": {
+        "internal_features_users_transport_http.GetUserResponse": {
             "type": "object",
             "properties": {
                 "full_name": {
@@ -861,7 +861,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_users_transport_http.PatchUserRequest": {
+        "internal_features_users_transport_http.PatchUserRequest": {
             "type": "object",
             "properties": {
                 "full_name": {
@@ -874,7 +874,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_users_transport_http.PatchUserResponse": {
+        "internal_features_users_transport_http.PatchUserResponse": {
             "type": "object",
             "properties": {
                 "full_name": {
@@ -895,7 +895,7 @@ const docTemplate = `{
                 }
             }
         },
-        "iternal_features_users_transport_http.UserDTOResponse": {
+        "internal_features_users_transport_http.UserDTOResponse": {
             "type": "object",
             "properties": {
                 "full_name": {

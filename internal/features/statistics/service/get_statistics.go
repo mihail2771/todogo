@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/mihail2771/todogo/iternal/core/domain"
-	core_errors "github.com/mihail2771/todogo/iternal/core/errors"
+	"github.com/mihail2771/todogo/internal/core/domain"
+	core_errors "github.com/mihail2771/todogo/internal/core/errors"
 )
 
 func (s *StatisticsService) GetStatistics(

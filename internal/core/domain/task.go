@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	core_errors "github.com/mihail2771/todogo/iternal/core/errors"
+	core_errors "github.com/mihail2771/todogo/internal/core/errors"
 )
 
 type Task struct {

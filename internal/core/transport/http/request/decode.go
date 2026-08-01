@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/go-playground/validator/v10"
-	core_errors "github.com/mihail2771/todogo/iternal/core/errors"
+	core_errors "github.com/mihail2771/todogo/internal/core/errors"
 )
 
 var requestValidator = validator.New()

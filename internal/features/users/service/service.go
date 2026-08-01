@@ -3,7 +3,7 @@ package users_service
 import (
 	"context"
 
-	"github.com/mihail2771/todogo/iternal/core/domain"
+	"github.com/mihail2771/todogo/internal/core/domain"
 )
 
 type UserService struct {

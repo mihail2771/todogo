@@ -3,8 +3,8 @@ package web_transport_http
 import (
 	"net/http"
 
-	core_logger "github.com/mihail2771/todogo/iternal/core/logger"
-	core_http_response "github.com/mihail2771/todogo/iternal/core/transport/http/response"
+	core_logger "github.com/mihail2771/todogo/internal/core/logger"
+	core_http_response "github.com/mihail2771/todogo/internal/core/transport/http/response"
 )
 
 func (h *WebHTTPHandler) GetMainPage(rw http.ResponseWriter, r *http.Request) {

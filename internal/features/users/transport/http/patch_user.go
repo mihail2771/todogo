@@ -5,12 +5,12 @@ import (
 	"net/http"
 	"regexp"
 
-	"github.com/mihail2771/todogo/iternal/core/domain"
-	core_errors "github.com/mihail2771/todogo/iternal/core/errors"
-	core_logger "github.com/mihail2771/todogo/iternal/core/logger"
-	core_http_request "github.com/mihail2771/todogo/iternal/core/transport/http/request"
-	core_http_response "github.com/mihail2771/todogo/iternal/core/transport/http/response"
-	core_http_types "github.com/mihail2771/todogo/iternal/core/transport/http/types"
+	"github.com/mihail2771/todogo/internal/core/domain"
+	core_errors "github.com/mihail2771/todogo/internal/core/errors"
+	core_logger "github.com/mihail2771/todogo/internal/core/logger"
+	core_http_request "github.com/mihail2771/todogo/internal/core/transport/http/request"
+	core_http_response "github.com/mihail2771/todogo/internal/core/transport/http/response"
+	core_http_types "github.com/mihail2771/todogo/internal/core/transport/http/types"
 )
 
 type PatchUserRequest struct {

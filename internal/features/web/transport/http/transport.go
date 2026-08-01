@@ -1,7 +1,7 @@
 package web_transport_http
 
 import (
-	core_http_server "github.com/mihail2771/todogo/iternal/core/transport/http/server"
+	core_http_server "github.com/mihail2771/todogo/internal/core/transport/http/server"
 )
 
 type WebHTTPHandler struct {
