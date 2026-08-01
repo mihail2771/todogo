@@ -5,9 +5,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/mihail2771/todogo/iternal/core/domain"
-	core_errors "github.com/mihail2771/todogo/iternal/core/errors"
-	core_postgres_pool "github.com/mihail2771/todogo/iternal/core/repository/postgres/pool"
+	"github.com/mihail2771/todogo/internal/core/domain"
+	core_errors "github.com/mihail2771/todogo/internal/core/errors"
+	core_postgres_pool "github.com/mihail2771/todogo/internal/core/repository/postgres/pool"
 )
 
 func (r *TasksRepository) CreateTask(

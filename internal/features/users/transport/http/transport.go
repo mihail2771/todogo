@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/mihail2771/todogo/iternal/core/domain"
-	core_http_server "github.com/mihail2771/todogo/iternal/core/transport/http/server"
+	"github.com/mihail2771/todogo/internal/core/domain"
+	core_http_server "github.com/mihail2771/todogo/internal/core/transport/http/server"
 )
 
 type UserHTTPHandler struct {

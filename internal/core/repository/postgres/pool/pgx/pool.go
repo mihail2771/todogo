@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/jackc/pgx/v5/pgxpool"
-	core_postgres_pool "github.com/mihail2771/todogo/iternal/core/repository/postgres/pool"
+	core_postgres_pool "github.com/mihail2771/todogo/internal/core/repository/postgres/pool"
 )
 
 type Pool struct {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	core_logger "github.com/mihail2771/todogo/iternal/core/logger"
+	core_logger "github.com/mihail2771/todogo/internal/core/logger"
 )
 
 func Dummy(s string) Middleware {

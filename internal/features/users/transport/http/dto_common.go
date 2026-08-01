@@ -1,6 +1,6 @@
 package user_transport_http
 
-import "github.com/mihail2771/todogo/iternal/core/domain"
+import "github.com/mihail2771/todogo/internal/core/domain"
 
 type UserDTOResponse struct {
 	ID          int     `json:"id" example:"10"`

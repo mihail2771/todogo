@@ -7,8 +7,8 @@ import (
 	"net/http"
 
 	"github.com/mihail2771/todogo/docs"
-	core_logger "github.com/mihail2771/todogo/iternal/core/logger"
-	core_http_middleware "github.com/mihail2771/todogo/iternal/core/transport/http/middleware"
+	core_logger "github.com/mihail2771/todogo/internal/core/logger"
+	core_http_middleware "github.com/mihail2771/todogo/internal/core/transport/http/middleware"
 	httpSwagger "github.com/swaggo/http-swagger/v2"
 	"go.uber.org/zap"
 )

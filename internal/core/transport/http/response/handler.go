@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/http"
 
-	core_errors "github.com/mihail2771/todogo/iternal/core/errors"
-	core_logger "github.com/mihail2771/todogo/iternal/core/logger"
+	core_errors "github.com/mihail2771/todogo/internal/core/errors"
+	core_logger "github.com/mihail2771/todogo/internal/core/logger"
 	"go.uber.org/zap"
 )
 

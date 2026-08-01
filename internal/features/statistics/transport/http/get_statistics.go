@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/mihail2771/todogo/iternal/core/domain"
-	core_logger "github.com/mihail2771/todogo/iternal/core/logger"
-	core_http_request "github.com/mihail2771/todogo/iternal/core/transport/http/request"
-	core_http_response "github.com/mihail2771/todogo/iternal/core/transport/http/response"
+	"github.com/mihail2771/todogo/internal/core/domain"
+	core_logger "github.com/mihail2771/todogo/internal/core/logger"
+	core_http_request "github.com/mihail2771/todogo/internal/core/transport/http/request"
+	core_http_response "github.com/mihail2771/todogo/internal/core/transport/http/response"
 )
 
 type GetStatisticsResponse struct {

@@ -3,7 +3,7 @@ package task_postgres_repository
 import (
 	"time"
 
-	"github.com/mihail2771/todogo/iternal/core/domain"
+	"github.com/mihail2771/todogo/internal/core/domain"
 )
 
 type TaskModel struct {

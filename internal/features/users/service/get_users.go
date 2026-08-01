@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/mihail2771/todogo/iternal/core/domain"
-	core_errors "github.com/mihail2771/todogo/iternal/core/errors"
+	"github.com/mihail2771/todogo/internal/core/domain"
+	core_errors "github.com/mihail2771/todogo/internal/core/errors"
 )
 
 func (s *UserService) GetUsers(

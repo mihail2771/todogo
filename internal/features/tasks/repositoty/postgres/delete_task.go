@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	core_errors "github.com/mihail2771/todogo/iternal/core/errors"
+	core_errors "github.com/mihail2771/todogo/internal/core/errors"
 )
 
 func (r *TasksRepository) DeleteTask(ctx context.Context, id int) error {
